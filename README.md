@@ -13,18 +13,48 @@ Usage Calculation: Project the total number of doses required for a specified pe
 
 Dashboard & Schedule: View a health overview and a detailed schedule of upcoming doses.
 
-
+# 3. Run the program
 
 <img width="607" height="117" alt="image" src="https://github.com/user-attachments/assets/208c3e1a-5628-4c43-8018-57c4d9c478f0" />
 
 
-    
-Run Instructions (GUI Version)The GUI provides a more interactive experience using Java Swing.Bash# 1. Navigate to the GUI source directory
-$ cd src/gui
+# OOP Concepts Applied
 
-# 2. Compile the source file
-$ javac MedicalGUI.java
 
-# 3. Run the program
-$ java MedicalGUI
+# Encapsulation
+The Medicine class uses private fields (`name`, `dose`, `notes`, and `reminderTimes`) with public
+getters and setters. This protects data and ensures values are accessed and modified through controlled methods.
+
+# Inheritance
+The class ConsoleReminder inherits from the abstract class `Reminder`.
+It reuses and extends the reminder framework provided by the parent class.
+
+# Abstraction
+The `Reminder` abstract class hides implementation details by requiring subclasses to implement
+`notifyUser()`.
+Only essential behavior (scheduling reminders) is exposed.
+
+# Class Descriptions
+
+Medicine
+Represents a single medicine entry.
+Fields: name, dose, notes, and a list of reminder times.
+Methods: getters, setters, addReminderTime(), removeReminderTime().
+Purpose: Stores all user-defined data for a specific medicine.
+MedicineManager
+Manages the list of medicines.
+Fields: ArrayList of Medicine objects.
+Methods: addMedicine(), getMedicine(), updateMedicine(), deleteMedicine(), listAll().
+Purpose: Handles CRUD operations (Create, Read, Update, Delete).
+Reminder (Abstract Class)
+General blueprint for any reminder type.
+Fields: Medicine medicine, String timeStr.
+Methods:run() and abstract notifyUser().
+Purpose:Defines shared structure for reminder behavior.
+ConsoleReminder (Subclass)
+Extends Reminder to provide console-based notifications.
+Overrides: notifyUser() — prints reminder details in the console.
+Purpose: Delivers actual reminder output to the user.
+
+
 
