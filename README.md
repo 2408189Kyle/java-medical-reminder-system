@@ -1,49 +1,9 @@
-⚕️ Medical Reminder System
-A comprehensive Java application designed to help users manage their medication schedule, ensuring timely intake and organized record-keeping through both Console-Based and Graphical User Interface (GUI) versions.
-
-💡 Project Overview
-The Medical Reminder System is built using Java to track medication schedules, providing daily reminders and organized record-keeping. It allows users to register as a patient, add new prescriptions, track dosages, and monitor treatment duration. The application is available in both a simple console interface (Medical.java) and a modern Swing GUI (MedicalGUI.java).
-
-✨ Key Features
-The system offers complete functionality for medication management:
-
-Patient Profile: Register and view the patient's age and gender.
-
-Prescription Management: Define medication, dosage, treatment frequency (e.g., "8 hours"), start time, and treatment duration.
-
-Tracking & Status: Easily Mark Doses Taken and manage prescription status (Active, Inactive, Completed).
-
-Usage Calculation: Project the total number of doses required for a specified period or the entire treatment duration.
-
-Dashboard & Schedule: View a health overview and a detailed schedule of upcoming doses.
-
-🛠️ Technologies & OOP Concepts
-The project is structured using fundamental OOP principles to ensure maintainability and flexibility.
-
-OOP Principles Applied
-Concept	Class/Mechanism	Description
-Encapsulation	Patient, Medicine	Private fields (age, dosage, frequency) with controlled access via public getters and setters protect the integrity of the data.
-Inheritance	Tablet, Capsule, OralMedicine	These concrete classes inherit common properties and abstract methods from the abstract superclass Medicine, centralizing scheduling logic.
-Polymorphism	take() and toString() Methods	Subclasses override the toString() method to display the exact type of medicine, demonstrating how different objects respond to the same method call.
-Abstraction	Medicine (Abstract Class)	Defines the essential framework for any medication (e.g., all must implement dose tracking and status) while hiding internal calculation complexities.
-
-Export to Sheets
-
-▶️ Getting Started
-To run the application, ensure you have JDK 8 or newer installed.
-
-Project Structure
-📂 src/
+⚕️ Medical Reminder SystemA comprehensive Java application designed to help users manage their medication schedule, ensuring timely intake and organized record-keeping through both Console-Based and Graphical User Interface (GUI) versions.💡 Project OverviewThe Medical Reminder System is built using Java to track medication schedules, providing daily reminders and organized record-keeping. It allows users to register as a patient, add new prescriptions, track dosages, and monitor treatment duration. The application is available in both a simple console interface (Medical.java) and a modern Swing GUI (MedicalGUI.java).✨ Key FeaturesThe system offers complete functionality for medication management:Patient Profile: Register and view the patient's age and gender.Prescription Management: Define medication, dosage, treatment frequency (e.g., "8 hours"), start time, and treatment duration.Tracking & Status: Easily Mark Doses Taken and manage prescription status (Active, Inactive, Completed).Usage Calculation: Project the total number of doses required for a specified period (or the entire treatment duration).Dashboard & Schedule: View a health overview and a detailed schedule of upcoming doses.🛠️ Technologies & Core ConceptsOOP Principles AppliedTo prevent inconsistent alignment caused by varying markdown renderers, this section uses HTML table markup for guaranteed structure:ConceptClass/MechanismDescriptionEncapsulationPatient, MedicinePrivate fields (age, dosage, frequency) with controlled access via public getters and setters protect the integrity of the data.InheritanceTablet, Capsule, OralMedicineThese concrete classes inherit common scheduling and status properties from the abstract superclass Medicine, centralizing core logic.Polymorphismtake() and toString() MethodsSubclasses override the toString() method to display the exact type of medicine, demonstrating how different objects respond to the same method call.AbstractionMedicine (Abstract Class)Defines the essential framework for any medication (e.g., all must implement dose tracking and status) while hiding internal calculation complexities.▶️ Getting StartedTo run the application, ensure you have JDK 8 or newer installed.Project Structure📂 src/
 ├── 📂 console-based/
 │   └── ☕ Medical.java          # Console-based entry point
 └── 📂 gui/
     └── ☕ MedicalGUI.java        # GUI entry point (Java Swing)
-Run Instructions (GUI Version)
-The GUI provides a more interactive experience using Java Swing.
-
-Bash
-
-# 1. Navigate to the GUI source directory
+Run Instructions (GUI Version)The GUI provides a more interactive experience using Java Swing.Bash# 1. Navigate to the GUI source directory
 $ cd src/gui
 
 # 2. Compile the source file
@@ -51,29 +11,4 @@ $ javac MedicalGUI.java
 
 # 3. Run the program
 $ java MedicalGUI
-🖼️ Application Snapshots
-Registration Screen	Dashboard Overview	View Schedule
-(https://github.com/user-attachments/assets/53090a33-2a91-4d88-9851-e655a82637d2)	(https://github.com/user-attachments/assets/ec582ffc-b66a-4b21-ad76-312f99d3e5b7)	(https://github.com/user-attachments/assets/52cefac9-df5a-4060-95e5-0b83527e2f47)
-Mark Dose Taken	Calculate Usage	View Details
-(https://github.com/user-attachments/assets/0661a9f5-7ae4-469e-9953-a090e07a885c)	(https://github.com/user-attachments/assets/280a5e18-0dad-4837-a12e-b39b00e24a03)	(https://github.com/user-attachments/assets/dec3733e-03c6-4fbc-a8ef-65068452c609)
-🗺️ Future Roadmap
-Potential enhancements to expand the system's capabilities:
-
-Data Persistence: Implement storage (e.g., file I/O or database) for permanently saving and loading all patient and medicine data.
-
-Advanced Notifications: Integrate support for email or external messaging services for robust reminder notifications.
-
-History Logging: Add a dedicated module for tracking the detailed history of doses taken and missed.
-
-Authentication: Implement a simple User Login System to protect patient privacy.
-
-👨‍💻 Authors & Credits
-This project was developed by:
-
-Arellano, Jaybert Ivan P.
-
-Encarnacion, Kyle
-
-Sua-an, Pauline Bernadeth G.
-
-We extend our sincere appreciation to our instructor for their guidance and support throughout the development process.
+🖼️ Application SnapshotsTo ensure these image titles align correctly, they are formatted as a two-line caption.Registration ScreenDashboard OverviewView Schedule(https://github.com/user-attachments/assets/53090a33-2a91-4d88-9851-e655a82637d2)(https://github.com/user-attachments/assets/ec582ffc-b66a-4b21-ad76-312f99d3e5b7)(https://github.com/user-attachments/assets/52cefac9-df5a-4060-95e5-0b83527e2f47)Mark Dose TakenCalculate UsageView Details(https://github.com/user-attachments/assets/0661a9f5-7ae4-469e-9953-a090e07a885c)(https://github.com/user-attachments/assets/280a5e18-0dad-4837-a12e-b39b00e24a03)(https://github.com/user-attachments/assets/dec3733e-03c6-4fbc-a8ef-65068452c609)🗺️ Future RoadmapPotential enhancements to expand the system's capabilities:Data Persistence: Implement storage (e.g., file I/O or database) for permanently saving and loading all patient and medicine data.Advanced Notifications: Integrate support for email or external messaging services for robust reminder notifications.History Logging: Add a dedicated module for tracking the detailed history of doses taken and missed.Authentication: Implement a simple User Login System to protect patient privacy.👨‍💻 Authors & CreditsThis project was developed by:Arellano, Jaybert Ivan P.Encarnacion, KyleSua-an, Pauline Bernadeth G.We extend our sincere appreciation to our instructor for their guidance and support throughout the development process.
