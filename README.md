@@ -1,53 +1,160 @@
-#medical-reminder-system
-
+Medical Reminder System
 Description / Overview
-The Medical Reminder System is a Java console-based application designed to help users
-manage their medicines and ensure they take them on time. It allows users to add, view, update,
-and delete medicine records, including scheduled reminder times. The system uses
-Object-Oriented Programming (OOP) principles and a scheduling mechanism to trigger console
-notifications at specified times. It solves the problem of forgetting medication by providing daily
-reminders and organized record-keeping in a simple and efficient way
+The Medical Reminder System is a Java console-based application designed to help users manage their medicines and ensure they take them on time. It allows users to add, view, update, and delete medicine records, including scheduled reminder times. The system uses Object-Oriented Programming (OOP) principles and a scheduling mechanism to trigger console notifications at specified times. It solves the problem of forgetting medication by providing daily reminders and organized record-keeping in a simple and efficient way.
 
+Functionality
 Users can:
-  Register as a patient
-  View health Overview
-  Add Prescription
-  Mark Dose Taken
-  Manage Status
-  Delete Prescription
-  Calculate USage
 
-Entry Storage:
+Register as a patient.
+
+View Health Overview.
+
+Add Prescription.
+
+Mark Dose Taken.
+
+Manage Status (Active, Inactive, Completed).
+
+Delete Prescription.
+
+Calculate Usage (The total number of doses needed for a period).
+
+Project Structure and Files
+Entry Storage
 📂 src/
 └── 📂 console-based/
     ├── ☕ Medical.java
-    📂 gui/
-    ├── 📂 bin
-    |   ├── app.class
-    |   ├── capsule.class
-    |   ├── medicine.class
-    |   ├── OralMedicine.class
-    |   ├── Patient.class
-    |   ├── Tablet.class
-    |   └── class
-    ├── App.java
-    └── MedicalGUI.java
+    └── 📂 gui/
+        ├── 📂 bin/
+        │   ├── app.class
+        │   ├── capsule.class
+        │   ├── medicine.class
+        │   ├── OralMedicine.class
+        │   ├── Patient.class
+        │   ├── Tablet.class
+        │   └── class
+        ├── App.java
+        └── MedicalGUI.java
 
-How to run the Program?
+Medical Reminder System
+Description / Overview
+The Medical Reminder System is a Java console-based application designed to help users manage their medicines and ensure they take them on time. It allows users to add, view, update, and delete medicine records, including scheduled reminder times. The system uses Object-Oriented Programming (OOP) principles and a scheduling mechanism to trigger console notifications at specified times. It solves the problem of forgetting medication by providing daily reminders and organized record-keeping in a simple and efficient way.
+
+Functionality
+Users can:
+
+Register as a patient.
+
+View Health Overview.
+
+Add Prescription.
+
+Mark Dose Taken.
+
+Manage Status (Active, Inactive, Completed).
+
+Delete Prescription.
+
+Calculate Usage (The total number of doses needed for a period).
+
+Project Structure and Files
+Entry Storage
+📂 src/
+└── 📂 console-based/
+    ├── ☕ Medical.java
+    └── 📂 gui/
+        ├── 📂 bin/
+        │   ├── app.class
+        │   ├── capsule.class
+        │   ├── medicine.class
+        │   ├── OralMedicine.class
+        │   ├── Patient.class
+        │   ├── Tablet.class
+        │   └── class
+        ├── App.java
+        └── MedicalGUI.java
+        
+How to Run the Program
+GUI Version: (Using MedicalGUI.java)
+
+
 📂 gui
- ├── java MedicalGUI
- └── javac MedicalGUI.java
-📂 console-based
- ├── java Medical
- └── javac Medical.java
+$ javac MedicalGUI.java
+$ java MedicalGUI
+Console-Based Version: (Using Medical.java)
 
-#Features
-- Add Prescription
-- View Dose
-- Mark Dose Taken
-- Update Prescription/Medical Status
-- View Details
-- Calculate Medicine Usage
+
+📂 console-based
+$ javac Medical.java
+$ java Medical
+
+Medical Reminder System
+Description / Overview
+The Medical Reminder System is a Java console-based application designed to help users manage their medicines and ensure they take them on time. It allows users to add, view, update, and delete medicine records, including scheduled reminder times. The system uses Object-Oriented Programming (OOP) principles and a scheduling mechanism to trigger console notifications at specified times. It solves the problem of forgetting medication by providing daily reminders and organized record-keeping in a simple and efficient way.
+
+Functionality
+Users can:
+
+Register as a patient.
+
+View Health Overview.
+
+Add Prescription.
+
+Mark Dose Taken.
+
+Manage Status (Active, Inactive, Completed).
+
+Delete Prescription.
+
+Calculate Usage (The total number of doses needed for a period).
+
+Project Structure and Files
+Entry Storage
+📂 src/
+└── 📂 console-based/
+    ├── ☕ Medical.java
+    └── 📂 gui/
+        ├── 📂 bin/
+        │   ├── app.class
+        │   ├── capsule.class
+        │   ├── medicine.class
+        │   ├── OralMedicine.class
+        │   ├── Patient.class
+        │   ├── Tablet.class
+        │   └── class
+        ├── App.java
+        └── MedicalGUI.java
+How to Run the Program
+GUI Version: (Using MedicalGUI.java)
+
+Bash
+
+📂 gui
+$ javac MedicalGUI.java
+$ java MedicalGUI
+Console-Based Version: (Using Medical.java)
+
+Bash
+
+📂 console-based
+$ javac Medical.java
+$ java Medical
+
+Core Features
+The system provides the following core functions:
+
+Add Prescription: Input medicine name, dosage, frequency, and duration.
+
+View Dose: Check the next scheduled dose time.
+
+Mark Dose Taken: Record a dose as taken and calculate the next time slot.
+
+Update Prescription/Medical Status: Change the status to active, inactive, or completed.
+
+View Details: See a comprehensive summary of a specific medicine.
+
+Calculate Medicine Usage: Determine the total quantity of medicine required for the treatment period.
   
 #OOP Concepts Applie
 
