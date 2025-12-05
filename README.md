@@ -56,5 +56,17 @@ Extends Reminder to provide console-based notifications.
 Overrides: notifyUser() — prints reminder details in the console.
 Purpose: Delivers actual reminder output to the user.
 
+# Author and Acknowledgement
+Author:
+ Arellano, Jaybert Ivan P.
+ Encarnacion , Kyle
+ Sua-an, Pauline Bernadeth G.
+We would like to express our gratitude to our instructor for the guidance provided throughout the
+development of this project. Their feedback helped us better understand Java and apply OOP
+principles effectively. We also thank our groupmates for the teamwork and cooperation that made
+this project successful. Finally, online resources—especially Programiz—were helpful in testing
+and running our Java program smoothly. This project would not be as polished without
+everyone’s support.
+
 
 
