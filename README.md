@@ -9,11 +9,11 @@ Tracking & Status: Easily Mark Doses Taken and manage prescription status (Activ
 Usage Calculation: Project the total number of doses required for a specified period (or the entire treatment duration).
 Dashboard & Schedule: View a health overview and a detailed schedule of upcoming doses.
 
-📂 src/
-├── 📂 console-based/
-│   └── ☕ Medical.java         
-└── 📂 gui/
-    └── ☕ MedicalGUI.java  
+
+
+<img width="607" height="117" alt="image" src="https://github.com/user-attachments/assets/208c3e1a-5628-4c43-8018-57c4d9c478f0" />
+
+
     
 Run Instructions (GUI Version)The GUI provides a more interactive experience using Java Swing.Bash# 1. Navigate to the GUI source directory
 $ cd src/gui
