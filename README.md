@@ -57,10 +57,14 @@ Overrides: notifyUser() — prints reminder details in the console.
 Purpose: Delivers actual reminder output to the user.
 
 # Author and Acknowledgement
+
 Author:
  Arellano, Jaybert Ivan P.
- Encarnacion , Kyle
+ 
+ Encarnacion , Kyle Raphael R.
+ 
  Sua-an, Pauline Bernadeth G.
+ 
 We would like to express our gratitude to our instructor for the guidance provided throughout the
 development of this project. Their feedback helped us better understand Java and apply OOP
 principles effectively. We also thank our groupmates for the teamwork and cooperation that made
