@@ -5,7 +5,8 @@
 ### A Comprehensive Java Application for Medication Management
 
 [![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)](https://www.java.com)
-[![License](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](LICENSE)
+[![Console](https://img.shields.io/badge/Console-Terminal-green.svg?style=for-the-badge)](https://github.com/2408189Kyle/java-medical-reminder-system/tree/main/src/console-based)
+[![GUI](https://img.shields.io/badge/GUI-Swing-blue.svg?style=for-the-badge)](https://github.com/2408189Kyle/java-medical-reminder-system/tree/main/src/gui)
 
 *Ensuring timely medication intake through organized record-keeping*
 
