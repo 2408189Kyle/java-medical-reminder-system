@@ -3,10 +3,11 @@ A comprehensive Java application designed to help users manage their medication 
 
 # Project Structure
 📂 src/
-└── 📂 diaryapp/
-    ├── ☕ Main.java          
-    ├── ☕ Diary.java
-    └── ☕ FileHandler.java
+
+└── 📂 console-based/
+    ├── medical.java        
+   
+    
 # 💡 Project Overview
 The Medical Reminder System is built using Java to track medication schedules, providing daily reminders and organized record-keeping. It allows users to register as a patient, add new prescriptions, track dosages, and monitor treatment duration. The application is available in both a simple console interface (Medical.java) and a modern Swing GUI (MedicalGUI.java).
 # ✨ Key Features
