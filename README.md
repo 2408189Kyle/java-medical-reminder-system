@@ -59,13 +59,23 @@ Purpose: Delivers actual reminder output to the user.
 
 # Program Output
 
+# Medical Reminder System
+
+## 📋 Patient Information
+
+```
 Full Name: Red Baron Barba
 Age: 23
 Gender: M
 Patient ID: PAT61248
 Recorded: 2025-12-06
-System Demo
-Main Menu
+```
+
+## 🎯 System Demo
+
+### Main Menu
+
+```
 Menu:
 1. Add new prescription
 2. View dose schedule
@@ -76,9 +86,15 @@ Menu:
 7. View prescription details
 8. Search medicine
 9. Exit
+```
 
-Example Usage
-1. Adding New Prescription - Biogesic
+---
+
+## 📖 Example Usage
+
+### 1. Adding New Prescription - Biogesic
+
+```
 Choose option: 1
 
 NEW PRESCRIPTION
@@ -105,8 +121,11 @@ Choose: 2
 DOSAGE GUIDANCE
 AGE: Adult (13-64)
 Standard dosage OK
+```
 
-2. Viewing Dose Schedule
+### 2. Viewing Dose Schedule
+
+```
 Choose option: 2
 
 UPCOMING DOSE SCHEDULE
@@ -115,8 +134,11 @@ UPCOMING DOSE SCHEDULE
 +---------------------------------------------------+
 |  1 | Biogesic    | 06/12/2025 12:11 | ACTIVE     |
 +---------------------------------------------------+
+```
 
-3. Adding Second Prescription - Paracetamol
+### 3. Adding Second Prescription - Paracetamol
+
+```
 Choose option: 1
 
 NEW PRESCRIPTION
@@ -139,8 +161,11 @@ Choose: 3
 
 ✓ Prescription added and scheduled!
   The first dose is set for: 07/12/2025 12:21
+```
 
-4. Updated Schedule with Multiple Prescriptions
+### 4. Updated Schedule with Multiple Prescriptions
+
+```
 Choose option: 2
 
 UPCOMING DOSE SCHEDULE
@@ -150,8 +175,11 @@ UPCOMING DOSE SCHEDULE
 |  1 | Biogesic    | 06/12/2025 12:11 | ACTIVE     |
 |  2 | Paracetamol | 07/12/2025 12:21 | ACTIVE     |
 +---------------------------------------------------+
+```
 
-5. Marking Dose as Taken
+### 5. Marking Dose as Taken
+
+```
 Choose option: 3
 
 ACTIVE PRESCRIPTIONS
@@ -168,13 +196,20 @@ Biogesic (300mg)
 -> Take Tablet with water: Biogesic
 Calculate next dose? (y/n): y
 ✓ Next dose: 06/12/2025 17:11
-Second Dose:
+```
+
+**Second Dose:**
+
+```
 Choose option: 3
 Select: 1
 
 ✓ Next dose: 06/12/2025 22:11
+```
 
-6. Updating Prescription Status
+### 6. Updating Prescription Status
+
+```
 Choose option: 4
 
 STATUS UPDATE
@@ -194,7 +229,11 @@ Current Status: ACTIVE
 
 Choose: 2
 ✓ Status: INACTIVE
-Updated Schedule:
+```
+
+**Updated Schedule:**
+
+```
 UPCOMING DOSE SCHEDULE
 +---------------------------------------------------+
 | No | Name        | Next Dose Time   | Status     |
@@ -202,15 +241,22 @@ UPCOMING DOSE SCHEDULE
 |  1 | Biogesic    | 06/12/2025 22:11 | ACTIVE     |
 |  2 | Paracetamol | 07/12/2025 12:21 | INACTIVE   |
 +---------------------------------------------------+
-Marking as Completed:
+```
+
+**Marking as Completed:**
+
+```
 Choose option: 4
 Select: 2
 Choose: 3
 
 Confirm mark as COMPLETED? (y/n): y
 ✓ Status: COMPLETED
+```
 
-7. Calculate Medicine Usage
+### 7. Calculate Medicine Usage
+
+```
 Choose option: 5
 
 MEDICINE USAGE CALCULATOR
@@ -228,15 +274,21 @@ Frequency: 5 hours
 Duration: 5 days
 Doses/Day: 4
 TOTAL DOSES: 20
+```
 
-8. Dosage Guidance
+### 8. Dosage Guidance
+
+```
 Choose option: 6
 
 DOSAGE GUIDANCE
 AGE: Adult (13-64)
 Standard dosage OK
+```
 
-9. View Prescription Details
+### 9. View Prescription Details
+
+```
 Choose option: 7
 
 VIEW PRESCRIPTION DETAILS
@@ -256,16 +308,22 @@ Select: 2
 | Duration: 2 days                     |
 | Days Left: 3                         |
 +---------------------------------------+
+```
 
-10. Search Medicine
+### 10. Search Medicine
+
+```
 Choose option: 8
 
 Search medicine name: pAraCetamol
 
 SEARCH RESULTS
 1) Paracetamol (COMPLETED)
+```
 
-11. Final Schedule
+### 11. Final Schedule
+
+```
 Choose option: 2
 
 UPCOMING DOSE SCHEDULE
@@ -275,8 +333,11 @@ UPCOMING DOSE SCHEDULE
 |  1 | Biogesic    | 06/12/2025 22:11 | ACTIVE     |
 |  2 | Paracetamol | 07/12/2025 12:21 | COMPLETED  |
 +---------------------------------------------------+
+```
 
-12. Mark Final Dose
+### 12. Mark Final Dose
+
+```
 Choose option: 3
 
 ACTIVE PRESCRIPTIONS
@@ -292,29 +353,18 @@ Biogesic (300mg)
 -> Take Tablet with water: Biogesic
 Calculate next dose? (y/n): y
 ✓ Next dose: 07/12/2025 03:11
+```
 
-Features
+---
 
-✅ Add multiple prescriptions with custom schedules
-✅ Track medication dosage and frequency
-✅ Set medication reminders
-✅ Mark doses as taken
-✅ Update prescription status (Active/Inactive/Completed)
-✅ Calculate total medicine usage
-✅ Age-appropriate dosage guidance
-✅ View detailed prescription information
-✅ Search medications by name
-✅ Support for different medicine types (Oral, Tablet, Capsule)
+## ✨ Features
 
-
-System Exit
-Choose option: 9
-
-Thank you for using Medical Reminder System!
-Goodbye!
-
-
-- with GUI
+- ✅ Add multiple prescriptions with custom schedules
+- ✅ Track medication dosage and frequency
+- ✅ Set medication reminders
+- ✅ Mark doses as taken
+- ✅ Update prescription status (Active/Inactive/Completed)
+- ✅ Calculate to
 
   <img width="1186" height="728" alt="image" src="https://github.com/user-attachments/assets/35b3f5ee-7477-4995-a5af-7e184661ee47" />
 
