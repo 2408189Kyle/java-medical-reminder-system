@@ -1905,7 +1905,7 @@ This project would not be as polished without everyone's support and contributio
 
 ### ⭐ If you find this project useful, please consider giving it a star!
 
-**Made with ❤️ and ☕ by the Medical Reminder Team**
+**Made with ❤️ and ☕ by the Guild Masters**
 
 ---
 
