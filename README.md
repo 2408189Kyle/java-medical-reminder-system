@@ -19,6 +19,7 @@
 - [Features](#-features)
 - [System Requirements](#-system-requirements)
 - [Installation & Setup](#-installation--setup)
+- [Menu Functions](#-menu-functions)
 - [Program Output](#-program-output)
 - [OOP Concepts Applied](#-oop-concepts-applied)
 - [Class Architecture](#-class-architecture)
@@ -39,6 +40,8 @@ The application is available in two versions:
 
 ## ✨ Features
 
+<div align="center">
+
 | Feature | Description |
 |---------|-------------|
 | 👤 **Patient Profile** | Register and view patient's age and gender |
@@ -48,6 +51,9 @@ The application is available in two versions:
 | 📅 **Dashboard & Schedule** | View health overview and detailed schedule of upcoming doses |
 | 🔍 **Search Functionality** | Quick medicine search by name |
 | ⚠️ **Dosage Guidance** | Age-appropriate medication recommendations |
+| 🎯 **Smart Sorting** | Automatic prioritization of active and overdue medications |
+
+</div>
 
 ---
 
@@ -82,6 +88,28 @@ java Medical
 <div align="center">
 
 ![Run Program](https://github.com/user-attachments/assets/208c3e1a-5628-4c43-8018-57c4d9c478f0)
+
+</div>
+
+---
+
+## 🎯 Menu Functions
+
+<div align="center">
+
+### Main Menu Options
+
+| Option | Function | Purpose |
+|--------|----------|---------|
+| **1** | 🆕 Add New Prescription | Creates a new medicine entry with dosage, frequency, start time, duration, and type (Oral/Tablet/Capsule). Validates input and schedules the first dose automatically. |
+| **2** | 📅 View Dose Schedule | Displays all medications sorted by status and next dose time. Shows active, inactive, completed, and overdue medications with visual indicators (*DUE*) for urgent doses. |
+| **3** | ✅ Mark Dose Taken | Records medication intake and automatically calculates the next dose time based on frequency. Updates the medication schedule in real-time. |
+| **4** | 🔄 Update Status | Allows users to change prescription status (Active/Inactive/Completed), view details, or delete medications. Includes confirmation prompts for critical actions. |
+| **5** | 📊 Calculate Medicine Usage | Computes total doses needed based on frequency and duration. Helps patients plan medication purchases and track consumption patterns. |
+| **6** | ⚕️ Dosage Guidance | Provides age-appropriate dosing recommendations: Pediatric (0-12), Standard Adult (13-64), or Senior (65+) with reduced dose warnings. |
+| **7** | 📄 View Prescription Details | Shows comprehensive information including dosage, frequency, status, notes, start date, duration, and remaining days of treatment. |
+| **8** | 🔍 Search Medicine | Enables quick lookup of medications by name using case-insensitive search. Returns all matching prescriptions with their current status. |
+| **9** | 🚪 Exit | Safely closes the application and displays a goodbye message. |
 
 </div>
 
@@ -421,35 +449,186 @@ Calculate next dose? (y/n): y
 
 ## 🎓 OOP Concepts Applied
 
-### 🔒 Encapsulation
+<div align="center">
 
-The `Medicine` class uses private fields (`name`, `dose`, `notes`, and `reminderTimes`) with public getters and setters. This protects data and ensures values are accessed and modified through controlled methods.
+### Object-Oriented Programming Implementation
 
-```java
-private String name;
-private String dose;
-// Getters and setters provide controlled access
-```
+</div>
 
-### 🧬 Inheritance
+### 🔒 1. Encapsulation
 
-The `ConsoleReminder` class inherits from the abstract class `Reminder`. It reuses and extends the reminder framework provided by the parent class.
+**Definition:** Bundling data (fields) and methods that operate on that data within a single unit (class), while restricting direct access to some components.
+
+**Implementation in Code:**
 
 ```java
-public class ConsoleReminder extends Reminder {
-    // Inherits properties and methods from Reminder
+abstract class Medicine {
+    // PRIVATE fields - data is hidden from outside access
+    private String name;
+    private String dosage;
+    private String frequency;
+    private LocalDateTime nextTakeTime;
+    private boolean isCompleted = false;
+    private boolean isActive = true;
+    
+    // PUBLIC methods - controlled access to data
+    public String getName() { return name; }
+    public String getDosage() { return dosage; }
+    public void setIsCompleted(boolean completed) { 
+        this.isCompleted = completed; 
+        if (completed) {
+            this.isActive = false; // Business logic protection
+        }
+    }
 }
 ```
 
-### 🎭 Abstraction
+**Purpose:**
+- ✅ **Data Protection:** Prevents direct modification of critical fields like `nextTakeTime` and `isActive`
+- ✅ **Controlled Access:** Getters and setters ensure data validation and business rules are enforced
+- ✅ **Maintainability:** Internal implementation can change without affecting external code
+- ✅ **Security:** Sensitive patient data in `Patient` class is protected from unauthorized access
 
-The `Reminder` abstract class hides implementation details by requiring subclasses to implement `notifyUser()`. Only essential behavior (scheduling reminders) is exposed.
+**Real Example:** When marking a prescription as completed, the setter automatically sets `isActive` to false, preventing inconsistent states.
+
+---
+
+### 🧬 2. Inheritance
+
+**Definition:** A mechanism where a new class (child/subclass) derives properties and behaviors from an existing class (parent/superclass).
+
+**Implementation in Code:**
 
 ```java
-public abstract class Reminder {
-    public abstract void notifyUser();
+// PARENT CLASS - Base blueprint for all medicines
+abstract class Medicine {
+    private String name;
+    private String dosage;
+    private String frequency;
+    
+    public abstract void take(); // Must be implemented by children
+    
+    public void calculateNextTime() { /* Common logic */ }
+    public void displayInfo() { /* Common logic */ }
+}
+
+// CHILD CLASSES - Inherit from Medicine
+class OralMedicine extends Medicine {
+    @Override
+    public void take() {
+        System.out.println("-> Swallow the Oral Medicine: " + getName());
+    }
+}
+
+class Tablet extends Medicine {
+    @Override
+    public void take() {
+        System.out.println("-> Take Tablet with water: " + getName());
+    }
+}
+
+class Capsule extends Medicine {
+    @Override
+    public void take() {
+        System.out.println("-> Swallow Capsule whole: " + getName());
+    }
 }
 ```
+
+**Purpose:**
+- ✅ **Code Reusability:** All medicine types share common functionality (`calculateNextTime()`, `displayInfo()`)
+- ✅ **Hierarchy:** Creates a clear "IS-A" relationship (Tablet IS-A Medicine, Capsule IS-A Medicine)
+- ✅ **Extensibility:** New medicine types can be added easily without modifying existing code
+- ✅ **Reduced Redundancy:** Common fields and methods are defined once in the parent class
+
+**Real Example:** `Tablet`, `Capsule`, and `OralMedicine` all inherit scheduling logic but provide specific intake instructions.
+
+---
+
+### 🎭 3. Abstraction
+
+**Definition:** Hiding complex implementation details and showing only essential features. Abstract classes cannot be instantiated directly.
+
+**Implementation in Code:**
+
+```java
+// ABSTRACT CLASS - Cannot be instantiated directly
+abstract class Medicine {
+    // Concrete methods - implementation provided
+    public void calculateNextTime() {
+        // Complex calculation logic hidden from user
+        String[] parts = frequency.split(" ");
+        long value = Long.parseLong(parts[0]);
+        String unit = parts[1].toLowerCase().trim();
+        
+        Duration duration = switch (unit) {
+            case "hours" -> Duration.ofHours(value);
+            case "days" -> Duration.ofDays(value);
+            default -> null;
+        };
+        this.nextTakeTime = this.nextTakeTime.plus(duration);
+    }
+    
+    // Abstract method - subclasses MUST implement
+    public abstract void take();
+}
+
+// User creates specific medicine types, not abstract Medicine
+Medicine med = new Tablet("Aspirin", "500mg", "8 hours", time, 5);
+```
+
+**Purpose:**
+- ✅ **Simplified Interface:** Users interact with simple methods like `take()` without knowing complex calculations
+- ✅ **Enforced Structure:** Subclasses must implement `take()`, ensuring consistent behavior
+- ✅ **Flexibility:** Implementation details can change without affecting how users interact with Medicine
+- ✅ **Focus on "What" not "How":** Users know they can call `calculateNextTime()` without understanding date/time math
+
+**Real Example:** The `calculateNextTime()` method hides complex duration parsing and time calculations. Users just call it, and the next dose is computed automatically.
+
+---
+
+### 🔄 4. Polymorphism
+
+**Definition:** The ability of different classes to be treated as instances of the same parent class, with each providing its own implementation of methods.
+
+**Implementation in Code:**
+
+```java
+// Polymorphism in action - same method, different behaviors
+List<Medicine> meds = new ArrayList<>();
+
+// All are stored as Medicine type, but are actually different types
+meds.add(new Tablet("Biogesic", "300mg", "5 hours", time, 5));
+meds.add(new Capsule("Paracetamol", "400mg", "1 day", time, 2));
+meds.add(new OralMedicine("Syrup", "10ml", "8 hours", time, 7));
+
+// POLYMORPHIC BEHAVIOR - same method call, different output
+for (Medicine m : meds) {
+    m.take(); // Calls the appropriate version based on actual type
+}
+
+// Output:
+// -> Take Tablet with water: Biogesic
+// -> Swallow Capsule whole: Paracetamol
+// -> Swallow the Oral Medicine: Syrup
+```
+
+**Purpose:**
+- ✅ **Unified Interface:** All medicines can be stored in one list and processed uniformly
+- ✅ **Runtime Behavior:** Correct `take()` method is called based on actual object type at runtime
+- ✅ **Extensibility:** New medicine types work with existing code without modifications
+- ✅ **Simplified Code:** Single loop handles all medicine types, reducing complexity
+
+**Real Example in Menu Option 3:**
+```java
+private static void takeAndRecalculate(Scanner sc, List<Medicine> meds) {
+    Medicine m = meds.get(index);
+    m.take(); // Polymorphic call - displays correct instruction for each type
+    m.calculateNextTime(); // Works for all medicine types
+}
+```
+
+**Runtime Polymorphism:** When marking a dose as taken, the system automatically displays "Take Tablet with water" for tablets, "Swallow Capsule whole" for capsules, and "Swallow the Oral Medicine" for oral medicines—all from the same method call!
 
 ---
 
@@ -457,37 +636,222 @@ public abstract class Reminder {
 
 <div align="center">
 
-| Class | Purpose | Key Methods |
-|-------|---------|-------------|
-| **Medicine** | Represents a single medicine entry | `addReminderTime()`, `removeReminderTime()` |
-| **MedicineManager** | Manages the list of medicines | `addMedicine()`, `getMedicine()`, `updateMedicine()`, `deleteMedicine()` |
-| **Reminder** *(Abstract)* | General blueprint for any reminder type | `run()`, `notifyUser()` |
-| **ConsoleReminder** | Extends Reminder for console-based notifications | `notifyUser()` |
+### System Design Overview
+
+```
+┌─────────────────────────────────────────────────────────┐
+│                      Medical.java                       │
+│                   (Main Application)                     │
+└───────────────────┬─────────────────────────────────────┘
+                    │
+        ┌───────────┴───────────┐
+        │                       │
+        ▼                       ▼
+┌───────────────┐      ┌──────────────┐
+│    Patient    │      │   Medicine   │
+│     Class     │      │   (Abstract) │
+└───────────────┘      └──────┬───────┘
+                              │
+                 ┌────────────┼────────────┐
+                 │            │            │
+                 ▼            ▼            ▼
+         ┌─────────────┐ ┌─────────┐ ┌─────────┐
+         │OralMedicine │ │ Tablet  │ │ Capsule │
+         └─────────────┘ └─────────┘ └─────────┘
+```
 
 </div>
 
-### 📦 Medicine Class
-- **Represents**: A single medicine entry
-- **Fields**: `name`, `dose`, `notes`, list of reminder times
-- **Methods**: Getters, setters, `addReminderTime()`, `removeReminderTime()`
-- **Purpose**: Stores all user-defined data for a specific medicine
+### 📊 Class Responsibilities Table
 
-### 🗂️ MedicineManager Class
-- **Manages**: The list of medicines
-- **Fields**: `ArrayList` of Medicine objects
-- **Methods**: CRUD operations (Create, Read, Update, Delete)
-- **Purpose**: Handles all medicine data operations
+<div align="center">
 
-### 🔔 Reminder Class (Abstract)
-- **General**: Blueprint for any reminder type
-- **Fields**: `Medicine medicine`, `String timeStr`
-- **Methods**: `run()` and abstract `notifyUser()`
-- **Purpose**: Defines shared structure for reminder behavior
+| Class | Type | Responsibility | Key Fields | Key Methods |
+|-------|------|---------------|------------|-------------|
+| **Medical** | Main | Application entry point and user interface | `meds: List<Medicine>`, `currentPatient: Patient` | `main()`, `createMedicine()`, `takeAndRecalculate()`, `printMenu()` |
+| **Patient** | Concrete | Store patient information | `patientID`, `fullName`, `age`, `gender`, `recordedDate` | `displayInfo()`, getters for all fields |
+| **Medicine** | Abstract | Base class for all medications | `name`, `dosage`, `frequency`, `nextTakeTime`, `isActive`, `isCompleted` | `take()` (abstract), `calculateNextTime()`, `displayInfo()` |
+| **OralMedicine** | Concrete | Represents liquid medications | *(inherits from Medicine)* | `take()` - "Swallow the Oral Medicine" |
+| **Tablet** | Concrete | Represents tablet medications | *(inherits from Medicine)* | `take()` - "Take Tablet with water" |
+| **Capsule** | Concrete | Represents capsule medications | *(inherits from Medicine)* | `take()` - "Swallow Capsule whole" |
 
-### 📢 ConsoleReminder Class (Subclass)
-- **Extends**: Reminder to provide console-based notifications
-- **Overrides**: `notifyUser()` — prints reminder details in console
-- **Purpose**: Delivers actual reminder output to the user
+</div>
+
+---
+
+### 📦 Detailed Class Descriptions
+
+#### 1. **Medical Class** (Main Application)
+
+<table>
+<tr>
+<td width="30%"><b>Purpose</b></td>
+<td>Entry point of the application. Manages user interaction, menu display, and coordinates all operations.</td>
+</tr>
+<tr>
+<td><b>Key Responsibilities</b></td>
+<td>
+• User interface management<br>
+• Menu navigation<br>
+• Input validation<br>
+• Medicine creation and management<br>
+• Patient registration<br>
+• Coordination between Patient and Medicine objects
+</td>
+</tr>
+<tr>
+<td><b>Important Methods</b></td>
+<td>
+<code>main()</code> - Application entry point<br>
+<code>createMedicine()</code> - Creates new Medicine objects<br>
+<code>takeAndRecalculate()</code> - Records dose and calculates next time<br>
+<code>calculateMedicineUsage()</code> - Computes total doses needed<br>
+<code>updateMedicineStatus()</code> - Manages medicine lifecycle<br>
+<code>displayAgeRecommendation()</code> - Provides dosage guidance
+</td>
+</tr>
+</table>
+
+---
+
+#### 2. **Patient Class**
+
+<table>
+<tr>
+<td width="30%"><b>Purpose</b></td>
+<td>Represents a patient with personal health information. Encapsulates patient data and provides formatted display.</td>
+</tr>
+<tr>
+<td><b>Fields</b></td>
+<td>
+<code>patientID: String</code> - Unique identifier<br>
+<code>fullName: String</code> - Patient's full name<br>
+<code>age: int</code> - Patient's age<br>
+<code>gender: String</code> - Patient's gender (Male/Female)<br>
+<code>recordedDate: LocalDate</code> - Registration date
+</td>
+</tr>
+<tr>
+<td><b>Methods</b></td>
+<td>
+<code>displayInfo()</code> - Shows formatted patient record<br>
+<code>getFullName()</code>, <code>getAge()</code>, <code>getGender()</code> - Data accessors<br>
+<code>getPatientID()</code> - Returns unique patient identifier
+</td>
+</tr>
+<tr>
+<td><b>OOP Principles</b></td>
+<td>
+<b>Encapsulation:</b> Private fields with public getters<br>
+<b>Single Responsibility:</b> Only manages patient data
+</td>
+</tr>
+</table>
+
+---
+
+#### 3. **Medicine Class** (Abstract)
+
+<table>
+<tr>
+<td width="30%"><b>Purpose</b></td>
+<td>Abstract base class defining common structure and behavior for all medicine types. Cannot be instantiated directly.</td>
+</tr>
+<tr>
+<td><b>Fields</b></td>
+<td>
+<code>name: String</code> - Medicine name<br>
+<code>dosage: String</code> - Dosage amount (e.g., "500mg")<br>
+<code>frequency: String</code> - How often to take (e.g., "8 hours")<br>
+<code>nextTakeTime: LocalDateTime</code> - Next scheduled dose<br>
+<code>startDate: LocalDate</code> - Treatment start date<br>
+<code>treatmentDurationInDays: long</code> - Treatment period<br>
+<code>notes: String</code> - Additional instructions<br>
+<code>isCompleted: boolean</code> - Completion status<br>
+<code>isActive: boolean</code> - Active/Inactive status
+</td>
+</tr>
+<tr>
+<td><b>Abstract Methods</b></td>
+<td>
+<code>take()</code> - Must be implemented by subclasses to define specific intake instructions
+</td>
+</tr>
+<tr>
+<td><b>Concrete Methods</b></td>
+<td>
+<code>calculateNextTime()</code> - Computes next dose based on frequency<br>
+<code>displayInfo()</code> - Shows comprehensive medicine details<br>
+<code>isDurationExceeded()</code> - Checks if treatment period has passed<br>
+<code>getStatusDisplay()</code> - Returns current status (ACTIVE/INACTIVE/COMPLETED/OVERDUE)<br>
+Multiple getters and setters for all fields
+</td>
+</tr>
+<tr>
+<td><b>OOP Principles</b></td>
+<td>
+<b>Abstraction:</b> Hides complex time calculations and status logic<br>
+<b>Encapsulation:</b> All fields are private with controlled access<br>
+<b>Inheritance Base:</b> Provides common functionality for subclasses
+</td>
+</tr>
+</table>
+
+---
+
+#### 4. **OralMedicine, Tablet, Capsule Classes** (Concrete)
+
+<table>
+<tr>
+<td width="30%"><b>Purpose</b></td>
+<td>Concrete implementations of Medicine for different medication types. Each provides specific intake instructions.</td>
+</tr>
+<tr>
+<td><b>Inheritance</b></td>
+<td>
+All three classes extend <code>Medicine</code> abstract class
+</td>
+</tr>
+<tr>
+<td><b>Implemented Methods</b></td>
+<td>
+<b>OralMedicine:</b> <code>take()</code> - "Swallow the Oral Medicine: [name]"<br>
+<b>Tablet:</b> <code>take()</code> - "Take Tablet with water: [name]"<br>
+<b>Capsule:</b> <code>take()</code> - "Swallow Capsule whole: [name]"<br>
+<code>toString()</code> - Returns type name for display
+</td>
+</tr>
+<tr>
+<td><b>Constructor</b></td>
+<td>
+Each constructor accepts: <code>name</code>, <code>dosage</code>, <code>frequency</code>, <code>nextTakeTime</code>, <code>durationDays</code><br>
+Calls parent constructor: <code>super(name, dosage, frequency, nextTakeTime, durationDays)</code>
+</td>
+</tr>
+<tr>
+<td><b>OOP Principles</b></td>
+<td>
+<b>Inheritance:</b> Inherits all fields and methods from Medicine<br>
+<b>Polymorphism:</b> Each provides unique implementation of <code>take()</code><br>
+<b>Liskov Substitution:</b> Can be used anywhere Medicine is expected
+</td>
+</tr>
+</table>
+
+---
+
+### 🔄 How Classes Work Together
+
+```
+1. User starts application → Medical.main() executes
+2. Patient object created → stores user information
+3. User adds prescription → createMedicine() called
+4. Medicine subclass instantiated → OralMedicine, Tablet, or Capsule
+5. Medicine stored in List<Medicine> → polymorphic collection
+6. User marks dose taken → take() method called (polymorphic)
+7. Next dose calculated → calculateNextTime() updates schedule
+8. Status updates propagate → encapsulated state management
+```
 
 ---
 
@@ -499,9 +863,15 @@ public abstract class Reminder {
 
 ![Console View 1](https://github.com/user-attachments/assets/35b3f5ee-7477-4995-a5af-7e184661ee47)
 
+*Figure 1: Console-based interface showing medication tracking and schedule management*
+
+---
+
 ### GUI Interface
 
 ![GUI View 1](https://github.com/user-attachments/assets/8bbd27aa-abd9-4144-89a7-c86b2b17cc45)
+
+*Figure 2: Graphical user interface with modern Swing components*
 
 </div>
 
@@ -511,11 +881,13 @@ public abstract class Reminder {
 
 <div align="center">
 
-| Name | Role |
-|------|------|
-| **Arellano, Jaybert Ivan P.** | Developer |
-| **Encarnacion, Kyle Raphael R.** | Developer |
-| **Sua-an, Pauline Bernadeth G.** | Developer |
+### Development Team
+
+| Name | Role | Contribution |
+|------|------|-------------|
+| **Arellano, Jaybert Ivan P.** | Lead Developer | Core system architecture, OOP implementation |
+| **Encarnacion, Kyle Raphael R.** | Developer | GUI design, user interface components |
+| **Sua-an, Pauline Bernadeth G.** | Developer | Testing, documentation, feature implementation |
 
 </div>
 
@@ -525,13 +897,19 @@ public abstract class Reminder {
 
 We would like to express our gratitude to:
 
-- **Our Instructor** - For the guidance provided throughout the development of this project. Their feedback helped us better understand Java and apply OOP principles effectively.
+**Our Instructor**  
+For the guidance provided throughout the development of this project. Their feedback helped us better understand Java and apply OOP principles effectively, particularly in implementing encapsulation, inheritance, abstraction, and polymorphism in real-world scenarios.
 
-- **Our Groupmates** - For the teamwork and cooperation that made this project successful.
+**Our Groupmates**  
+For the teamwork and cooperation that made this project successful. The collaborative debugging sessions and code reviews significantly improved the quality of our implementation.
 
-- **Online Resources** - Especially [Programiz](https://www.programiz.com/java-programming) for helping us test and run our Java program smoothly.
+**Online Resources**  
+Especially [Programiz](https://www.programiz.com/java-programming) for helping us test and run our Java program smoothly. The tutorials on abstract classes and inheritance were particularly helpful.
 
-This project would not be as polished without everyone's support.
+**Open Source Community**  
+For the countless examples and best practices that guided our OOP design decisions.
+
+This project would not be as polished without everyone's support and contributions.
 
 ---
 
@@ -540,5 +918,9 @@ This project would not be as polished without everyone's support.
 ### ⭐ If you find this project useful, please consider giving it a star!
 
 **Made with ❤️ and ☕ by the Medical Reminder Team**
+
+---
+
+**© 2025 Medical Reminder System. All Rights Reserved.**
 
 </div>
