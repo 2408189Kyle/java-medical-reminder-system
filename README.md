@@ -115,19 +115,45 @@ java Medical
 
 ---
 
-## 📺 Program Output
+## 📺 Complete Program Output
 
-### 📋 Patient Information
+<div align="center">
+
+### Full System Demonstration - Step by Step
+
+*This section shows the complete program flow from start to finish*
+
+</div>
+
+---
+
+### 🏁 System Initialization
 
 ```
-Full Name: Red Baron Barba
-Age: 23
-Gender: M
-Patient ID: PAT61248
-Recorded: 2025-12-06
++________________________________________+
+|    MEDICAL REMINDER SYSTEM             |
++________________________________________+
+
+  Full Name: Red Baron Barba
+  Age: 23
+  Gender (M/F): M
+
++________________________________________+
+|          PATIENT RECORD                |
++________________________________________+
+| ID: PAT61248                       |
+| Name: Red Baron Barba              |
+| Age: 23                            |
+| Gender: Male                       |
+| Recorded: 2025-12-06                |
++________________________________________+
 ```
 
-### 🎯 Main Menu
+**What Happened:** Patient successfully registered with unique ID PAT61248. Age verification (23) categorized as Adult for standard dosage recommendations.
+
+---
+
+### 📝 Step 1: Adding First Prescription - Biogesic
 
 ```
 Menu:
@@ -140,11 +166,541 @@ Menu:
 7. View prescription details
 8. Search medicine
 9. Exit
+  Choose option: 1
+
+  +___ NEW PRESCRIPTION ___+
+  Medicine Name: Biogesic
+  Dosage (e.g., 500mg): 300mg
+  Frequency (e.g., '8 hours' or '1 day'): 5 hours
+  Notes (e.g., 'Take with food' or 'Before meals'): Before Sleeping 
+
+  +-- Initial Dose Time
+  | Date (DD/MM/YYYY): 06/12/2025
+  | Time (HH:MM): 12:11
+
+  Duration in days (0 for continuous): 5
+
+  +-- Medicine Type
+  | 1) Oral Medicine
+  | 2) Tablet
+  | 3) Capsule
+  +-- Choose (1-3): 2
+
+  V Prescription added and scheduled!
+  The first dose is set for: 06/12/2025 12:11
+
+  +____ DOSAGE GUIDANCE ____+
+  | AGE: Adult (13-64)     |
+  | Standard dosage OK     |
+  +_________________________+
 ```
+
+**What Happened:** Biogesic tablet (300mg) scheduled every 5 hours for 5 days starting December 6, 2025 at 12:11. System validates age and confirms standard adult dosage is appropriate.
 
 ---
 
-## 📖 Usage Examples
+### 📅 Step 2: Viewing Initial Schedule
+
+```
+Menu:
+1. Add new prescription
+2. View dose schedule
+3. Mark dose taken
+4. Update status
+5. Calculate medicine usage
+6. Dosage guidance
+7. View prescription details
+8. Search medicine
+9. Exit
+  Choose option: 2
+
+  +____ UPCOMING DOSE SCHEDULE ____+
+  +___________________________________________+
+  | No | Name         | Next Dose Time     | Status  |
+  +___________________________________________+
+  |  1 | Biogesic     | 06/12/2025 12:11   | ACTIVE      |
+  +___________________________________________+
+```
+
+**What Happened:** Schedule displays one active prescription with next dose time clearly shown.
+
+---
+
+### 📝 Step 3: Adding Second Prescription - Paracetamol
+
+```
+Menu:
+1. Add new prescription
+2. View dose schedule
+3. Mark dose taken
+4. Update status
+5. Calculate medicine usage
+6. Dosage guidance
+7. View prescription details
+8. Search medicine
+9. Exit
+  Choose option: 1
+
+  +___ NEW PRESCRIPTION ___+
+  Medicine Name: Paracetamol
+  Dosage (e.g., 500mg): 400mg
+  Frequency (e.g., '8 hours' or '1 day'): 1 day
+  Notes (e.g., 'Take with food' or 'Before meals'): Before meals
+
+  +-- Initial Dose Time
+  | Date (DD/MM/YYYY): 07/12/2025
+  | Time (HH:MM): 12:21
+
+  Duration in days (0 for continuous): 2
+
+  +-- Medicine Type
+  | 1) Oral Medicine
+  | 2) Tablet
+  | 3) Capsule
+  +-- Choose (1-3): 3
+
+  V Prescription added and scheduled!
+  The first dose is set for: 07/12/2025 12:21
+
+  +____ DOSAGE GUIDANCE ____+
+  | AGE: Adult (13-64)     |
+  | Standard dosage OK     |
+  +_________________________+
+```
+
+**What Happened:** Paracetamol capsule (400mg) added with once-daily dosing for 2 days starting December 7, 2025. Note added to take before meals.
+
+---
+
+### 📅 Step 4: Updated Schedule with Multiple Prescriptions
+
+```
+Menu:
+1. Add new prescription
+2. View dose schedule
+3. Mark dose taken
+4. Update status
+5. Calculate medicine usage
+6. Dosage guidance
+7. View prescription details
+8. Search medicine
+9. Exit
+  Choose option: 2
+
+  +____ UPCOMING DOSE SCHEDULE ____+
+  +___________________________________________+
+  | No | Name         | Next Dose Time     | Status  |
+  +___________________________________________+
+  |  1 | Biogesic     | 06/12/2025 12:11   | ACTIVE      |
+  |  2 | Paracetamol  | 07/12/2025 12:21   | ACTIVE      |
+  +___________________________________________+
+```
+
+**What Happened:** Both medications now visible in schedule, sorted by next dose time for easy tracking.
+
+---
+
+### ✅ Step 5: Marking First Dose - Biogesic
+
+```
+Menu:
+1. Add new prescription
+2. View dose schedule
+3. Mark dose taken
+4. Update status
+5. Calculate medicine usage
+6. Dosage guidance
+7. View prescription details
+8. Search medicine
+9. Exit
+  Choose option: 3
+
+  +____ ACTIVE PRESCRIPTIONS ____+
+  | No | Name         | Dosage  | Status  |
+  +______________________________________+
+  |  1 | Biogesic     | 300mg   | ACTIVE  |
+  |  2 | Paracetamol  | 400mg   | ACTIVE  |
+  +______________________________________+
+  Select (0 to cancel): 1
+
+  +____ DOSE CONFIRMATION ____+
+  | Biogesic (300mg)
+  -> Take Tablet with water: Biogesic
+  Calculate next dose? (y/n): y
+  V Next dose: 06/12/2025 17:11
+```
+
+**What Happened:** First Biogesic dose recorded. System automatically calculates next dose 5 hours later (17:11). Polymorphism in action - displays "Take Tablet with water" specific to Tablet class.
+
+---
+
+### ✅ Step 6: Marking Second Dose - Biogesic
+
+```
+Menu:
+1. Add new prescription
+2. View dose schedule
+3. Mark dose taken
+4. Update status
+5. Calculate medicine usage
+6. Dosage guidance
+7. View prescription details
+8. Search medicine
+9. Exit
+  Choose option: 3
+
+  +____ ACTIVE PRESCRIPTIONS ____+
+  | No | Name         | Dosage  | Status  |
+  +______________________________________+
+  |  1 | Biogesic     | 300mg   | ACTIVE  |
+  |  2 | Paracetamol  | 400mg   | ACTIVE  |
+  +______________________________________+
+  Select (0 to cancel): 1
+
+  +____ DOSE CONFIRMATION ____+
+  | Biogesic (300mg)
+  -> Take Tablet with water: Biogesic
+  Calculate next dose? (y/n): y
+  V Next dose: 06/12/2025 22:11
+```
+
+**What Happened:** Second Biogesic dose marked. Next dose automatically scheduled for 22:11 (another 5 hours). System maintains consistent 5-hour intervals.
+
+---
+
+### 🔄 Step 7: Changing Paracetamol Status to INACTIVE
+
+```
+Menu:
+1. Add new prescription
+2. View dose schedule
+3. Mark dose taken
+4. Update status
+5. Calculate medicine usage
+6. Dosage guidance
+7. View prescription details
+8. Search medicine
+9. Exit
+  Choose option: 4
+
+  +____ STATUS UPDATE ____+
+  1) Biogesic             [ACTIVE]
+  2) Paracetamol          [ACTIVE]
+  Select (0 to cancel): 2
+
+  +____ PARACETAMOL ____+
+  | Current Status: ACTIVE                 |
+  |________________________|
+  | 1) Set to ACTIVE       |
+  | 2) Set to INACTIVE     |
+  | 3) Set to COMPLETED    |
+  | 4) View Full Details   |
+  | 5) Delete Medicine     |
+  | 6) Cancel              |
+  +________________________+
+  Choose (1-6): 2
+  V Status: INACTIVE
+```
+
+**What Happened:** Paracetamol temporarily deactivated. Remains in system but won't appear in active prescriptions list. Encapsulation ensures status change is properly managed.
+
+---
+
+### 📅 Step 8: Viewing Updated Schedule (After Status Change)
+
+```
+Menu:
+1. Add new prescription
+2. View dose schedule
+3. Mark dose taken
+4. Update status
+5. Calculate medicine usage
+6. Dosage guidance
+7. View prescription details
+8. Search medicine
+9. Exit
+  Choose option: 2
+
+  +____ UPCOMING DOSE SCHEDULE ____+
+  +___________________________________________+
+  | No | Name         | Next Dose Time     | Status  |
+  +___________________________________________+
+  |  1 | Biogesic     | 06/12/2025 22:11   | ACTIVE      |
+  |  2 | Paracetamol  | 07/12/2025 12:21   | INACTIVE     |
+  +___________________________________________+
+```
+
+**What Happened:** Schedule now shows Biogesic's updated next dose time (22:11) and Paracetamol's inactive status. Both medications still tracked but status clearly differentiated.
+
+---
+
+### 🔄 Step 9: Marking Paracetamol as COMPLETED
+
+```
+Menu:
+1. Add new prescription
+2. View dose schedule
+3. Mark dose taken
+4. Update status
+5. Calculate medicine usage
+6. Dosage guidance
+7. View prescription details
+8. Search medicine
+9. Exit
+  Choose option: 4
+
+  +____ STATUS UPDATE ____+
+  1) Biogesic             [ACTIVE]
+  2) Paracetamol          [INACTIVE]
+  Select (0 to cancel): 2
+
+  +____ PARACETAMOL ____+
+  | Current Status: INACTIVE               |
+  |________________________|
+  | 1) Set to ACTIVE       |
+  | 2) Set to INACTIVE     |
+  | 3) Set to COMPLETED    |
+  | 4) View Full Details   |
+  | 5) Delete Medicine     |
+  | 6) Cancel              |
+  +________________________+
+  Choose (1-6): 3
+  Confirm mark as COMPLETED? (y/n): y
+  V Status: COMPLETED
+```
+
+**What Happened:** Paracetamol treatment finished. System requires confirmation before completing to prevent accidental changes. Status permanently set to COMPLETED.
+
+---
+
+### 📊 Step 10: Calculate Medicine Usage - Biogesic
+
+```
+Menu:
+1. Add new prescription
+2. View dose schedule
+3. Mark dose taken
+4. Update status
+5. Calculate medicine usage
+6. Dosage guidance
+7. View prescription details
+8. Search medicine
+9. Exit
+  Choose option: 5
+
+  +____ MEDICINE USAGE CALCULATOR ____+
+  | Calculates total dosage needed      |
+  +___________________________________+
+
+  +-- SELECT PRESCRIPTION
+  | 1) Biogesic (300mg)
+  | 2) Paracetamol (400mg)
+  +-- Choose (1-2): 1
+
+  +____ USAGE ANALYSIS ____+
+  | Medicine: Biogesic                |
+  | Dosage: 300mg                     |
+  | Frequency: 5 hours                |
+  |________________________|
+  | Duration: 5                       |
+  | Doses/Day: 4                      |
+  | TOTAL DOSES: 20                   |
+  +________________________+
+```
+
+**What Happened:** Calculator determines patient needs 20 doses total (4 doses per day × 5 days). Helps plan medication purchases: need to buy at least 20 tablets of Biogesic.
+
+---
+
+### ⚕️ Step 11: Checking Dosage Guidance
+
+```
+Menu:
+1. Add new prescription
+2. View dose schedule
+3. Mark dose taken
+4. Update status
+5. Calculate medicine usage
+6. Dosage guidance
+7. View prescription details
+8. Search medicine
+9. Exit
+  Choose option: 6
+
+  +____ DOSAGE GUIDANCE ____+
+  | AGE: Adult (13-64)     |
+  | Standard dosage OK     |
+  +_________________________+
+```
+
+**What Happened:** System confirms standard adult dosing is appropriate for 23-year-old patient. Would show different guidance for children (0-12) or seniors (65+).
+
+---
+
+### 📄 Step 12: Viewing Detailed Prescription Information
+
+```
+Menu:
+1. Add new prescription
+2. View dose schedule
+3. Mark dose taken
+4. Update status
+5. Calculate medicine usage
+6. Dosage guidance
+7. View prescription details
+8. Search medicine
+9. Exit
+  Choose option: 7
+
+  +____ VIEW PRESCRIPTION DETAILS ____+
+  1) Biogesic (ACTIVE)
+  2) Paracetamol (COMPLETED)
+  Select (0 to cancel): 2
+  +-------------------------------------+
+  | Paracetamol (Capsule)
+  +-------------------------------------+
+  | Dosage: 400mg
+  | Frequency: 1 day
+  | Next Dose: 07/12/2025 12:21
+  | Status: COMPLETED
+  | Notes: Before meals
+  | Start: 07/12/2025
+  | Duration: 2 days
+  | Days Left: 3
+  +-------------------------------------+
+```
+
+**What Happened:** Comprehensive view shows all Paracetamol details including type (Capsule), notes, start date, and remaining days. Demonstrates `displayInfo()` method from Medicine class.
+
+---
+
+### 🔍 Step 13: Searching for Medicine
+
+```
+Menu:
+1. Add new prescription
+2. View dose schedule
+3. Mark dose taken
+4. Update status
+5. Calculate medicine usage
+6. Dosage guidance
+7. View prescription details
+8. Search medicine
+9. Exit
+  Choose option: 8
+
+  Search medicine name: pAraCetamol
+
+  +____ SEARCH RESULTS ____+
+  1) Paracetamol (COMPLETED)
+  +________________________+
+```
+
+**What Happened:** Case-insensitive search successfully finds "Paracetamol" even though user typed "pAraCetamol". Useful for quick lookup when managing multiple prescriptions.
+
+---
+
+### 📅 Step 14: Final Schedule Review
+
+```
+Menu:
+1. Add new prescription
+2. View dose schedule
+3. Mark dose taken
+4. Update status
+5. Calculate medicine usage
+6. Dosage guidance
+7. View prescription details
+8. Search medicine
+9. Exit
+  Choose option: 2
+
+  +____ UPCOMING DOSE SCHEDULE ____+
+  +___________________________________________+
+  | No | Name         | Next Dose Time     | Status  |
+  +___________________________________________+
+  |  1 | Biogesic     | 06/12/2025 22:11   | ACTIVE      |
+  |  2 | Paracetamol  | 07/12/2025 12:21   | COMPLETED     |
+  +___________________________________________+
+```
+
+**What Happened:** Final schedule shows Biogesic still active with next dose at 22:11, and Paracetamol completed. System maintains historical record even after completion.
+
+---
+
+### ✅ Step 15: Marking Third Dose - Biogesic
+
+```
+Menu:
+1. Add new prescription
+2. View dose schedule
+3. Mark dose taken
+4. Update status
+5. Calculate medicine usage
+6. Dosage guidance
+7. View prescription details
+8. Search medicine
+9. Exit
+  Choose option: 3
+
+  +____ ACTIVE PRESCRIPTIONS ____+
+  | No | Name         | Dosage  | Status  |
+  +______________________________________+
+  |  1 | Biogesic     | 300mg   | ACTIVE  |
+  +______________________________________+
+  Select (0 to cancel): 1
+
+  +____ DOSE CONFIRMATION ____+
+  | Biogesic (300mg)
+  -> Take Tablet with water: Biogesic
+  Calculate next dose? (y/n): y
+  V Next dose: 07/12/2025 03:11
+```
+
+**What Happened:** Third Biogesic dose recorded. Next dose calculated for early next morning (03:11). Only Biogesic appears in active list since Paracetamol is completed.
+
+---
+
+### 👋 Step 16: Exiting the System
+
+```
+Menu:
+1. Add new prescription
+2. View dose schedule
+3. Mark dose taken
+4. Update status
+5. Calculate medicine usage
+6. Dosage guidance
+7. View prescription details
+8. Search medicine
+9. Exit
+  Choose option: 9
+
+  Thank you for using Medical Reminder System!
+  Goodbye!
+```
+
+**What Happened:** Clean program exit with friendly goodbye message. All data properly managed throughout session.
+
+---
+
+<div align="center">
+
+### 📊 Summary of Demonstration
+
+| Metric | Value | Details |
+|--------|-------|---------|
+| **Total Prescriptions Created** | 2 | Biogesic (Tablet), Paracetamol (Capsule) |
+| **Doses Recorded** | 3 | All for Biogesic at 5-hour intervals |
+| **Status Changes** | 2 | Paracetamol: ACTIVE → INACTIVE → COMPLETED |
+| **Features Demonstrated** | 9/9 | All menu functions successfully tested |
+| **OOP Concepts Shown** | 4/4 | Encapsulation, Inheritance, Abstraction, Polymorphism |
+
+</div>
+
+---
+
+## 📖 Individual Feature Examples
 
 <details>
 <summary><b>1️⃣ Adding New Prescription - Biogesic</b></summary>
