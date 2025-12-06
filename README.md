@@ -68,6 +68,60 @@ The application is available in two versions:
 
 ---
 
+## 📁 Project Structure
+
+<div align="center">
+
+### Repository Organization
+
+</div>
+
+```
+📦 java-medical-reminder-system
+├── 📂 src/
+│   ├── 📂 console-based/
+│   │   └── ☕ Medical.java
+│   └── 📂 gui/
+│       ├── 📂 bin/
+│       ├── ☕ App.java
+│       └── ☕ MedicalGUI.java
+├── 📄 .gitignore
+└── 📄 README.md
+```
+
+<table>
+<tr>
+<td width="30%"><b>📂 src/console-based/</b></td>
+<td>
+Contains the <b>command-line version</b> of the application<br>
+• <code>Medical.java</code> - Complete console-based implementation
+</td>
+</tr>
+<tr>
+<td><b>📂 src/gui/</b></td>
+<td>
+Contains the <b>graphical user interface version</b><br>
+• <code>App.java</code> - GUI application entry point<br>
+• <code>MedicalGUI.java</code> - Swing-based graphical interface<br>
+• <code>bin/</code> - Compiled class files
+</td>
+</tr>
+<tr>
+<td><b>📄 README.md</b></td>
+<td>
+Complete documentation and user guide
+</td>
+</tr>
+<tr>
+<td><b>📄 .gitignore</b></td>
+<td>
+Git configuration for excluding unnecessary files
+</td>
+</tr>
+</table>
+
+---
+
 ## 🚀 Installation & Setup
 
 ### Step 1: Clone the Repository
