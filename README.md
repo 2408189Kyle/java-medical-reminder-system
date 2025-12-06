@@ -1,67 +1,95 @@
+<div align="center">
+
 # ⚕️ Medical Reminder System
-A comprehensive Java application designed to help users manage their medication schedule, ensuring timely intake and organized record-keeping through both Console-Based and Graphical User Interface (GUI) versions.
-    
-# 💡 Project Overview
-The Medical Reminder System is built using Java to track medication schedules, providing daily reminders and organized record-keeping. It allows users to register as a patient, add new prescriptions, track dosages, and monitor treatment duration. The application is available in both a simple console interface (Medical.java) and a modern Swing GUI (MedicalGUI.java).
-# ✨ Key Features
-Patient Profile: Register and view the patient's age and gender.
 
-Prescription Management: Define medication, dosage, treatment frequency (e.g., "8 hours"), start time, and treatment duration.
+### A Comprehensive Java Application for Medication Management
 
-Tracking & Status: Easily Mark Doses Taken and manage prescription status (Active, Inactive, Completed).
+[![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)](https://www.java.com)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](LICENSE)
 
-Usage Calculation: Project the total number of doses required for a specified period (or the entire treatment duration).
+*Ensuring timely medication intake through organized record-keeping*
 
-Dashboard & Schedule: View a health overview and a detailed schedule of upcoming doses.
+</div>
 
-# 3. Run the program
+---
 
-<img width="607" height="117" alt="image" src="https://github.com/user-attachments/assets/208c3e1a-5628-4c43-8018-57c4d9c478f0" />
+## 📋 Table of Contents
 
+- [Overview](#-overview)
+- [Features](#-features)
+- [System Requirements](#-system-requirements)
+- [Installation & Setup](#-installation--setup)
+- [Program Output](#-program-output)
+- [OOP Concepts Applied](#-oop-concepts-applied)
+- [Class Architecture](#-class-architecture)
+- [Screenshots](#-screenshots)
+- [Authors](#-authors)
 
-# OOP Concepts Applied
+---
 
+## 💡 Overview
 
-# Encapsulation
-The Medicine class uses private fields (`name`, `dose`, `notes`, and `reminderTimes`) with public
-getters and setters. This protects data and ensures values are accessed and modified through controlled methods.
+The **Medical Reminder System** is built using Java to track medication schedules, providing daily reminders and organized record-keeping. It allows users to register as a patient, add new prescriptions, track dosages, and monitor treatment duration. 
 
-# Inheritance
-The class ConsoleReminder inherits from the abstract class `Reminder`.
-It reuses and extends the reminder framework provided by the parent class.
+The application is available in two versions:
+- **Console-Based Interface** (`Medical.java`) - Simple text-based interaction
+- **Graphical User Interface** (`MedicalGUI.java`) - Modern Swing GUI
 
-# Abstraction
-The `Reminder` abstract class hides implementation details by requiring subclasses to implement
-`notifyUser()`.
-Only essential behavior (scheduling reminders) is exposed.
+---
 
-# Class Descriptions
+## ✨ Features
 
-Medicine
-Represents a single medicine entry.
-Fields: name, dose, notes, and a list of reminder times.
-Methods: getters, setters, addReminderTime(), removeReminderTime().
-Purpose: Stores all user-defined data for a specific medicine.
-MedicineManager
-Manages the list of medicines.
-Fields: ArrayList of Medicine objects.
-Methods: addMedicine(), getMedicine(), updateMedicine(), deleteMedicine(), listAll().
-Purpose: Handles CRUD operations (Create, Read, Update, Delete).
-Reminder (Abstract Class)
-General blueprint for any reminder type.
-Fields: Medicine medicine, String timeStr.
-Methods:run() and abstract notifyUser().
-Purpose:Defines shared structure for reminder behavior.
-ConsoleReminder (Subclass)
-Extends Reminder to provide console-based notifications.
-Overrides: notifyUser() — prints reminder details in the console.
-Purpose: Delivers actual reminder output to the user.
+| Feature | Description |
+|---------|-------------|
+| 👤 **Patient Profile** | Register and view patient's age and gender |
+| 💊 **Prescription Management** | Define medication, dosage, treatment frequency (e.g., "8 hours"), start time, and duration |
+| ✅ **Tracking & Status** | Mark doses taken and manage prescription status (Active, Inactive, Completed) |
+| 📊 **Usage Calculation** | Project the total number of doses required for a specified period |
+| 📅 **Dashboard & Schedule** | View health overview and detailed schedule of upcoming doses |
+| 🔍 **Search Functionality** | Quick medicine search by name |
+| ⚠️ **Dosage Guidance** | Age-appropriate medication recommendations |
 
-# Program Output
+---
 
-# Medical Reminder System
+## 🖥️ System Requirements
 
-## 📋 Patient Information
+```
+☕ Java Development Kit (JDK) 8 or higher
+💻 Any operating system (Windows, macOS, Linux)
+📦 Java Swing library (included in JDK)
+```
+
+---
+
+## 🚀 Installation & Setup
+
+### Step 1: Clone the Repository
+```bash
+git clone https://github.com/yourusername/medical-reminder-system.git
+cd medical-reminder-system
+```
+
+### Step 2: Compile the Program
+```bash
+javac Medical.java
+```
+
+### Step 3: Run the Application
+```bash
+java Medical
+```
+
+<div align="center">
+
+![Run Program](https://github.com/user-attachments/assets/208c3e1a-5628-4c43-8018-57c4d9c478f0)
+
+</div>
+
+---
+
+## 📺 Program Output
+
+### 📋 Patient Information
 
 ```
 Full Name: Red Baron Barba
@@ -71,9 +99,7 @@ Patient ID: PAT61248
 Recorded: 2025-12-06
 ```
 
-## 🎯 System Demo
-
-### Main Menu
+### 🎯 Main Menu
 
 ```
 Menu:
@@ -90,9 +116,10 @@ Menu:
 
 ---
 
-## 📖 Example Usage
+## 📖 Usage Examples
 
-### 1. Adding New Prescription - Biogesic
+<details>
+<summary><b>1️⃣ Adding New Prescription - Biogesic</b></summary>
 
 ```
 Choose option: 1
@@ -123,7 +150,10 @@ AGE: Adult (13-64)
 Standard dosage OK
 ```
 
-### 2. Viewing Dose Schedule
+</details>
+
+<details>
+<summary><b>2️⃣ Viewing Dose Schedule</b></summary>
 
 ```
 Choose option: 2
@@ -136,7 +166,10 @@ UPCOMING DOSE SCHEDULE
 +---------------------------------------------------+
 ```
 
-### 3. Adding Second Prescription - Paracetamol
+</details>
+
+<details>
+<summary><b>3️⃣ Adding Second Prescription - Paracetamol</b></summary>
 
 ```
 Choose option: 1
@@ -163,7 +196,10 @@ Choose: 3
   The first dose is set for: 07/12/2025 12:21
 ```
 
-### 4. Updated Schedule with Multiple Prescriptions
+</details>
+
+<details>
+<summary><b>4️⃣ Updated Schedule with Multiple Prescriptions</b></summary>
 
 ```
 Choose option: 2
@@ -177,7 +213,10 @@ UPCOMING DOSE SCHEDULE
 +---------------------------------------------------+
 ```
 
-### 5. Marking Dose as Taken
+</details>
+
+<details>
+<summary><b>5️⃣ Marking Dose as Taken</b></summary>
 
 ```
 Choose option: 3
@@ -207,7 +246,10 @@ Select: 1
 ✓ Next dose: 06/12/2025 22:11
 ```
 
-### 6. Updating Prescription Status
+</details>
+
+<details>
+<summary><b>6️⃣ Updating Prescription Status</b></summary>
 
 ```
 Choose option: 4
@@ -254,7 +296,10 @@ Confirm mark as COMPLETED? (y/n): y
 ✓ Status: COMPLETED
 ```
 
-### 7. Calculate Medicine Usage
+</details>
+
+<details>
+<summary><b>7️⃣ Calculate Medicine Usage</b></summary>
 
 ```
 Choose option: 5
@@ -276,7 +321,10 @@ Doses/Day: 4
 TOTAL DOSES: 20
 ```
 
-### 8. Dosage Guidance
+</details>
+
+<details>
+<summary><b>8️⃣ Dosage Guidance</b></summary>
 
 ```
 Choose option: 6
@@ -286,7 +334,10 @@ AGE: Adult (13-64)
 Standard dosage OK
 ```
 
-### 9. View Prescription Details
+</details>
+
+<details>
+<summary><b>9️⃣ View Prescription Details</b></summary>
 
 ```
 Choose option: 7
@@ -310,7 +361,10 @@ Select: 2
 +---------------------------------------+
 ```
 
-### 10. Search Medicine
+</details>
+
+<details>
+<summary><b>🔟 Search Medicine</b></summary>
 
 ```
 Choose option: 8
@@ -321,7 +375,10 @@ SEARCH RESULTS
 1) Paracetamol (COMPLETED)
 ```
 
-### 11. Final Schedule
+</details>
+
+<details>
+<summary><b>1️⃣1️⃣ Final Schedule</b></summary>
 
 ```
 Choose option: 2
@@ -335,7 +392,10 @@ UPCOMING DOSE SCHEDULE
 +---------------------------------------------------+
 ```
 
-### 12. Mark Final Dose
+</details>
+
+<details>
+<summary><b>1️⃣2️⃣ Mark Final Dose</b></summary>
 
 ```
 Choose option: 3
@@ -355,37 +415,130 @@ Calculate next dose? (y/n): y
 ✓ Next dose: 07/12/2025 03:11
 ```
 
+</details>
+
 ---
 
-## ✨ Features
+## 🎓 OOP Concepts Applied
 
-- ✅ Add multiple prescriptions with custom schedules
-- ✅ Track medication dosage and frequency
-- ✅ Set medication reminders
-- ✅ Mark doses as taken
-- ✅ Update prescription status (Active/Inactive/Completed)
-- ✅ Calculate to
+### 🔒 Encapsulation
 
-  <img width="1186" height="728" alt="image" src="https://github.com/user-attachments/assets/35b3f5ee-7477-4995-a5af-7e184661ee47" />
+The `Medicine` class uses private fields (`name`, `dose`, `notes`, and `reminderTimes`) with public getters and setters. This protects data and ensures values are accessed and modified through controlled methods.
 
+```java
+private String name;
+private String dose;
+// Getters and setters provide controlled access
+```
 
-  <img width="1181" height="727" alt="image" src="https://github.com/user-attachments/assets/8bbd27aa-abd9-4144-89a7-c86b2b17cc45" />
+### 🧬 Inheritance
 
-# Author and Acknowledgement
+The `ConsoleReminder` class inherits from the abstract class `Reminder`. It reuses and extends the reminder framework provided by the parent class.
 
-Author:
- Arellano, Jaybert Ivan P.
- 
- Encarnacion , Kyle Raphael R.
- 
- Sua-an, Pauline Bernadeth G.
- 
-We would like to express our gratitude to our instructor for the guidance provided throughout the
-development of this project. Their feedback helped us better understand Java and apply OOP
-principles effectively. We also thank our groupmates for the teamwork and cooperation that made
-this project successful. Finally, online resources—especially Programiz—were helpful in testing
-and running our Java program smoothly. This project would not be as polished without
-everyone’s support.
+```java
+public class ConsoleReminder extends Reminder {
+    // Inherits properties and methods from Reminder
+}
+```
 
+### 🎭 Abstraction
 
+The `Reminder` abstract class hides implementation details by requiring subclasses to implement `notifyUser()`. Only essential behavior (scheduling reminders) is exposed.
 
+```java
+public abstract class Reminder {
+    public abstract void notifyUser();
+}
+```
+
+---
+
+## 🏗️ Class Architecture
+
+<div align="center">
+
+| Class | Purpose | Key Methods |
+|-------|---------|-------------|
+| **Medicine** | Represents a single medicine entry | `addReminderTime()`, `removeReminderTime()` |
+| **MedicineManager** | Manages the list of medicines | `addMedicine()`, `getMedicine()`, `updateMedicine()`, `deleteMedicine()` |
+| **Reminder** *(Abstract)* | General blueprint for any reminder type | `run()`, `notifyUser()` |
+| **ConsoleReminder** | Extends Reminder for console-based notifications | `notifyUser()` |
+
+</div>
+
+### 📦 Medicine Class
+- **Represents**: A single medicine entry
+- **Fields**: `name`, `dose`, `notes`, list of reminder times
+- **Methods**: Getters, setters, `addReminderTime()`, `removeReminderTime()`
+- **Purpose**: Stores all user-defined data for a specific medicine
+
+### 🗂️ MedicineManager Class
+- **Manages**: The list of medicines
+- **Fields**: `ArrayList` of Medicine objects
+- **Methods**: CRUD operations (Create, Read, Update, Delete)
+- **Purpose**: Handles all medicine data operations
+
+### 🔔 Reminder Class (Abstract)
+- **General**: Blueprint for any reminder type
+- **Fields**: `Medicine medicine`, `String timeStr`
+- **Methods**: `run()` and abstract `notifyUser()`
+- **Purpose**: Defines shared structure for reminder behavior
+
+### 📢 ConsoleReminder Class (Subclass)
+- **Extends**: Reminder to provide console-based notifications
+- **Overrides**: `notifyUser()` — prints reminder details in console
+- **Purpose**: Delivers actual reminder output to the user
+
+---
+
+## 📸 Screenshots
+
+<div align="center">
+
+### Console Interface
+
+![Console View 1](https://github.com/user-attachments/assets/35b3f5ee-7477-4995-a5af-7e184661ee47)
+
+### GUI Interface
+
+![GUI View 1](https://github.com/user-attachments/assets/8bbd27aa-abd9-4144-89a7-c86b2b17cc45)
+
+</div>
+
+---
+
+## 👥 Authors
+
+<div align="center">
+
+| Name | Role |
+|------|------|
+| **Arellano, Jaybert Ivan P.** | Developer |
+| **Encarnacion, Kyle Raphael R.** | Developer |
+| **Sua-an, Pauline Bernadeth G.** | Developer |
+
+</div>
+
+---
+
+## 🙏 Acknowledgements
+
+We would like to express our gratitude to:
+
+- **Our Instructor** - For the guidance provided throughout the development of this project. Their feedback helped us better understand Java and apply OOP principles effectively.
+
+- **Our Groupmates** - For the teamwork and cooperation that made this project successful.
+
+- **Online Resources** - Especially [Programiz](https://www.programiz.com/java-programming) for helping us test and run our Java program smoothly.
+
+This project would not be as polished without everyone's support.
+
+---
+
+<div align="center">
+
+### ⭐ If you find this project useful, please consider giving it a star!
+
+**Made with ❤️ and ☕ by the Medical Reminder Team**
+
+</div>
