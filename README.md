@@ -67,6 +67,12 @@ Purpose: Delivers actual reminder output to the user.
 <img width="475" height="108" alt="image" src="https://github.com/user-attachments/assets/d94a073f-a05d-46e2-9001-28738752ed6e" />
 
 
+- with GUI
+
+  <img width="1186" height="728" alt="image" src="https://github.com/user-attachments/assets/35b3f5ee-7477-4995-a5af-7e184661ee47" />
+
+
+  <img width="1181" height="727" alt="image" src="https://github.com/user-attachments/assets/8bbd27aa-abd9-4144-89a7-c86b2b17cc45" />
 
 # Author and Acknowledgement
 
