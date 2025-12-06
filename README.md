@@ -116,6 +116,437 @@ java Medical
 
 ---
 
+## 💊 Add New Prescription - Detailed Explanation
+
+<div align="center">
+
+### Understanding the Prescription Creation Process
+
+</div>
+
+The **Add New Prescription** feature is the cornerstone of the Medical Reminder System. It guides users through a comprehensive process to create a complete medication schedule with all necessary details.
+
+---
+
+### 📝 Prescription Components Explained
+
+<table>
+<tr>
+<td width="25%"><b>🏷️ Medicine Name</b></td>
+<td>
+<b>Purpose:</b> Identifies the specific medication being taken<br>
+<b>Example:</b> "Biogesic", "Paracetamol", "Amoxicillin"<br>
+<b>Validation:</b> Cannot be empty; system prompts until valid name is entered<br>
+<b>Usage:</b> Used for searching, displaying schedules, and identifying prescriptions
+</td>
+</tr>
+<tr>
+<td><b>💉 Dosage</b></td>
+<td>
+<b>Purpose:</b> Specifies the <b>amount of medication</b> to take per dose<br>
+<b>Format:</b> Number + Unit (e.g., "300mg", "500mg", "10ml", "2 tablets")<br>
+<b>Example:</b> "300mg" means 300 milligrams per dose<br>
+<b>Important:</b> Must match doctor's prescription exactly for safety<br>
+<b>Display:</b> Shown in schedule views and dose confirmations
+</td>
+</tr>
+<tr>
+<td><b>⏱️ Frequency</b></td>
+<td>
+<b>Purpose:</b> Determines <b>how often</b> medication should be taken<br>
+<b>Format:</b> "[Number] [Unit]" where Unit = hours, days, or minutes<br>
+<b>Examples:</b>
+<ul>
+<li>"8 hours" → Take every 8 hours (3 times daily)</li>
+<li>"1 day" → Take once daily</li>
+<li>"12 hours" → Take twice daily</li>
+<li>"6 hours" → Take every 6 hours (4 times daily)</li>
+</ul>
+<b>System Behavior:</b> Automatically calculates next dose time based on frequency<br>
+<b>Smart Calculation:</b> If you take medicine at 12:00 with "8 hours" frequency, next dose = 20:00
+</td>
+</tr>
+<tr>
+<td><b>📝 Notes</b></td>
+<td>
+<b>Purpose:</b> Special instructions for taking the medication<br>
+<b>Examples:</b>
+<ul>
+<li>"Take with food" - Prevents stomach upset</li>
+<li>"Before meals" - For better absorption</li>
+<li>"Before sleeping" - For nighttime medications</li>
+<li>"After eating" - To avoid nausea</li>
+</ul>
+<b>Optional:</b> Can be left blank if no special instructions<br>
+<b>Display:</b> Shown in prescription details for quick reference
+</td>
+</tr>
+</table>
+
+---
+
+### 🕐 Date and Time System - Understanding the Schedule
+
+<div align="center">
+
+#### **Initial Dose Time** - When Your Treatment Begins
+
+</div>
+
+The system uses a **precise date and time format** to ensure accurate medication scheduling:
+
+<table>
+<tr>
+<td width="30%"><b>📅 Date Format</b></td>
+<td>
+<b>Format:</b> DD/MM/YYYY (Day/Month/Year)<br>
+<b>Example:</b> 06/12/2025 means December 6, 2025<br>
+<b>Purpose:</b> Sets the <b>starting date</b> of your medication schedule<br>
+<b>Validation:</b> System checks for valid date format
+</td>
+</tr>
+<tr>
+<td><b>🕒 Time Format</b></td>
+<td>
+<b>Format:</b> HH:MM (24-hour format)<br>
+<b>Examples:</b>
+<ul>
+<li>12:11 = 12:11 PM (noon)</li>
+<li>08:00 = 8:00 AM</li>
+<li>20:30 = 8:30 PM</li>
+<li>00:00 = Midnight</li>
+</ul>
+<b>Purpose:</b> Sets the <b>exact time</b> for first dose<br>
+<b>Important:</b> All subsequent doses calculated from this time
+</td>
+</tr>
+<tr>
+<td><b>⚡ How It Works</b></td>
+<td>
+<b>Example Calculation:</b><br>
+✓ First dose: 06/12/2025 12:11<br>
+✓ Frequency: "5 hours"<br>
+✓ Second dose: 06/12/2025 17:11 (12:11 + 5 hours)<br>
+✓ Third dose: 06/12/2025 22:11 (17:11 + 5 hours)<br>
+✓ Fourth dose: 07/12/2025 03:11 (22:11 + 5 hours)<br>
+<br>
+<b>Smart Features:</b><br>
+🔸 Automatic calculation - No manual math needed<br>
+🔸 Crosses midnight automatically - Handles date changes<br>
+🔸 Tracks all doses - Complete history maintained
+</td>
+</tr>
+</table>
+
+---
+
+### ⏳ Treatment Duration - How Long to Take Medicine
+
+<table>
+<tr>
+<td width="30%"><b>Purpose</b></td>
+<td>Specifies the <b>total number of days</b> for the treatment course</td>
+</tr>
+<tr>
+<td><b>Format</b></td>
+<td>
+<b>Whole number (0 or positive)</b><br>
+• Enter specific days: "5", "7", "14", "30"<br>
+• Enter 0: For continuous/ongoing medication
+</td>
+</tr>
+<tr>
+<td><b>Examples</b></td>
+<td>
+<b>Duration: 5 days</b><br>
+→ Treatment runs from start date to 5 days later<br>
+→ Example: Dec 6 to Dec 10<br>
+→ System warns when duration ends<br>
+<br>
+<b>Duration: 0 days (Continuous)</b><br>
+→ No end date - ongoing treatment<br>
+→ Example: Daily vitamins, chronic condition meds<br>
+→ Take until doctor advises to stop
+</td>
+</tr>
+<tr>
+<td><b>System Behavior</b></td>
+<td>
+✅ Tracks remaining days automatically<br>
+✅ Shows "Days Left" in prescription details<br>
+✅ Marks as "OVERDUE" if doses continue past duration<br>
+✅ Helps plan when to refill prescriptions
+</td>
+</tr>
+</table>
+
+---
+
+### 💊 Medicine Types - Understanding the Difference
+
+<div align="center">
+
+#### **Why Medicine Type Matters**
+
+The system categorizes medications into three types, each with **specific intake methods** and **handling instructions**.
+
+</div>
+
+---
+
+#### **1️⃣ Oral Medicine (Liquid Medications)**
+
+<table>
+<tr>
+<td width="25%"><b>🔷 What Is It?</b></td>
+<td>
+Liquid medications that come in <b>syrup, suspension, or solution form</b>
+</td>
+</tr>
+<tr>
+<td><b>📋 Examples</b></td>
+<td>
+• <b>Cough syrup</b> - For colds and flu<br>
+• <b>Antibiotic suspensions</b> - Amoxicillin syrup for children<br>
+• <b>Pain relievers</b> - Liquid ibuprofen or paracetamol<br>
+• <b>Vitamin supplements</b> - Multivitamin syrups<br>
+• <b>Antacids</b> - Liquid stomach relief medications
+</td>
+</tr>
+<tr>
+<td><b>💉 Dosage Format</b></td>
+<td>
+Usually measured in <b>milliliters (ml)</b> or <b>teaspoons (tsp)</b><br>
+Examples: "10ml", "5ml", "1 tsp", "15ml"
+</td>
+</tr>
+<tr>
+<td><b>✅ How to Take</b></td>
+<td>
+<b>System Instruction:</b> "Swallow the Oral Medicine: [name]"<br>
+<br>
+<b>Proper Method:</b><br>
+1️⃣ Shake bottle if instructed (suspensions settle)<br>
+2️⃣ Measure exact amount using medicine cup/syringe<br>
+3️⃣ Swallow directly - don't mix with other liquids unless told<br>
+4️⃣ Can follow with water if needed
+</td>
+</tr>
+<tr>
+<td><b>🎯 Special Considerations</b></td>
+<td>
+⚠️ <b>Must measure accurately</b> - Use proper measuring tools<br>
+⚠️ <b>Check expiration</b> - Liquids expire faster once opened<br>
+⚠️ <b>Storage</b> - Some need refrigeration (check label)<br>
+✅ <b>Best for:</b> Children, people who can't swallow pills, faster absorption
+</td>
+</tr>
+</table>
+
+---
+
+#### **2️⃣ Tablet (Compressed Solid Medications)**
+
+<table>
+<tr>
+<td width="25%"><b>🔷 What Is It?</b></td>
+<td>
+<b>Solid, flat, or round medications</b> compressed into a hard form
+</td>
+</tr>
+<tr>
+<td><b>📋 Examples</b></td>
+<td>
+• <b>Biogesic (Paracetamol)</b> - Pain and fever relief<br>
+• <b>Aspirin</b> - Blood thinner, pain relief<br>
+• <b>Vitamins</b> - Vitamin C, multivitamins<br>
+• <b>Antibiotics</b> - Amoxicillin tablets<br>
+• <b>Allergy medications</b> - Antihistamine tablets
+</td>
+</tr>
+<tr>
+<td><b>💉 Dosage Format</b></td>
+<td>
+Usually measured in <b>milligrams (mg)</b> or number of tablets<br>
+Examples: "500mg", "300mg", "1 tablet", "2 tablets"
+</td>
+</tr>
+<tr>
+<td><b>✅ How to Take</b></td>
+<td>
+<b>System Instruction:</b> "Take Tablet with water: [name]"<br>
+<br>
+<b>Proper Method:</b><br>
+1️⃣ Place tablet on tongue<br>
+2️⃣ <b>Drink full glass of water</b> (very important!)<br>
+3️⃣ Swallow tablet whole - <b>don't crush unless directed</b><br>
+4️⃣ Remain upright for a few minutes
+</td>
+</tr>
+<tr>
+<td><b>🎯 Special Considerations</b></td>
+<td>
+⚠️ <b>Always take with water</b> - Prevents throat irritation<br>
+⚠️ <b>Don't crush/break</b> - Unless tablet has score line or doctor says okay<br>
+⚠️ <b>Can be split</b> - If it has a line down the middle (scored)<br>
+✅ <b>Advantages:</b> Long shelf life, easy to store, precise dosing<br>
+✅ <b>Best for:</b> Adults, controlled-release medications
+</td>
+</tr>
+</table>
+
+---
+
+#### **3️⃣ Capsule (Two-Piece Gelatin Shell)**
+
+<table>
+<tr>
+<td width="25%"><b>🔷 What Is It?</b></td>
+<td>
+Medication enclosed in a <b>two-piece gelatin or vegetarian shell</b> (usually oblong shape)
+</td>
+</tr>
+<tr>
+<td><b>📋 Examples</b></td>
+<td>
+• <b>Paracetamol capsules</b> - Pain and fever relief<br>
+• <b>Antibiotics</b> - Amoxicillin capsules<br>
+• <b>Omega-3 supplements</b> - Fish oil capsules<br>
+• <b>Probiotics</b> - Digestive health supplements<br>
+• <b>Vitamin E</b> - Oil-based vitamin supplements
+</td>
+</tr>
+<tr>
+<td><b>💉 Dosage Format</b></td>
+<td>
+Usually measured in <b>milligrams (mg)</b> or <b>international units (IU)</b><br>
+Examples: "400mg", "500mg", "1000 IU", "1 capsule"
+</td>
+</tr>
+<tr>
+<td><b>✅ How to Take</b></td>
+<td>
+<b>System Instruction:</b> "Swallow Capsule whole: [name]"<br>
+<br>
+<b>Proper Method:</b><br>
+1️⃣ Place capsule on tongue<br>
+2️⃣ <b>Swallow WHOLE with water</b> - Very important!<br>
+3️⃣ <b>NEVER open, crush, or chew capsules</b><br>
+4️⃣ Take with full glass of water<br>
+5️⃣ Can tilt head forward slightly (helps swallowing)
+</td>
+</tr>
+<tr>
+<td><b>🎯 Special Considerations</b></td>
+<td>
+❌ <b>NEVER open capsules</b> - Contents may be:<br>
+  • Bitter tasting and cause nausea<br>
+  • Time-released (opening breaks the mechanism)<br>
+  • Irritating to mouth/throat<br>
+  • Damaged by stomach acid if not protected<br>
+<br>
+⚠️ <b>Shell dissolves in stomach</b> - Releases medication at right time<br>
+⚠️ <b>May float</b> - Easier to swallow than tablets for some people<br>
+✅ <b>Advantages:</b> Masks bad taste, protects sensitive ingredients, easier to swallow<br>
+✅ <b>Best for:</b> Extended-release meds, oil-based vitamins, stomach-sensitive drugs
+</td>
+</tr>
+</table>
+
+---
+
+### 🔄 Polymorphism in Action - Medicine Types
+
+<div align="center">
+
+#### **Why Three Different Types?**
+
+</div>
+
+The system uses **Object-Oriented Programming (Polymorphism)** to handle different medicine types intelligently:
+
+```java
+// Same method call, different behaviors
+tablet.take()    → "Take Tablet with water: Biogesic"
+capsule.take()   → "Swallow Capsule whole: Paracetamol"
+oral.take()      → "Swallow the Oral Medicine: Syrup"
+```
+
+**Benefits:**
+- ✅ **Type-Specific Instructions** - Correct guidance for each medication form
+- ✅ **Safety** - Prevents mistakes (e.g., crushing capsules that shouldn't be crushed)
+- ✅ **User-Friendly** - Clear, actionable directions every time
+- ✅ **Extensible** - Easy to add new medicine types in the future
+
+---
+
+### 📊 Complete Prescription Example
+
+<div align="center">
+
+**Real-World Example: Creating a Biogesic Prescription**
+
+</div>
+
+```
+Medicine Name: Biogesic
+Dosage: 300mg
+Frequency: 5 hours
+Notes: Before Sleeping
+
+Date: 06/12/2025
+Time: 12:11
+Duration: 5 days
+Type: Tablet (Option 2)
+
+✓ Result:
+  → First dose: Dec 6, 2025 at 12:11 PM
+  → Takes 300mg every 5 hours
+  → Total duration: 5 days (Dec 6 - Dec 10)
+  → Type: Tablet (must take with water)
+  → Special note: Take before sleeping
+  → Total doses needed: 20 doses (4 per day × 5 days)
+```
+
+---
+
+### ⚠️ Important Validation & Safety Features
+
+<table>
+<tr>
+<td width="30%"><b>✅ Input Validation</b></td>
+<td>
+• <b>Medicine name</b> - Cannot be empty<br>
+• <b>Dosage</b> - Cannot be empty<br>
+• <b>Frequency</b> - Must follow "Number Unit" format<br>
+• <b>Date/Time</b> - Must be valid DD/MM/YYYY HH:MM format<br>
+• <b>Duration</b> - Must be 0 or positive number<br>
+• <b>Medicine type</b> - Must select 1, 2, or 3
+</td>
+</tr>
+<tr>
+<td><b>🔔 Automatic Features</b></td>
+<td>
+• <b>Next dose calculation</b> - Automatic based on frequency<br>
+• <b>Age-appropriate guidance</b> - Checks patient age (23 = Adult)<br>
+• <b>Status tracking</b> - Sets as "ACTIVE" immediately<br>
+• <b>Schedule integration</b> - Adds to dose schedule automatically<br>
+• <b>Days remaining counter</b> - Tracks treatment progress
+</td>
+</tr>
+<tr>
+<td><b>🛡️ Safety Checks</b></td>
+<td>
+• <b>Dosage guidance</b> - Shows age-appropriate recommendations<br>
+• <b>Past time warning</b> - Notes if start time is in the past<br>
+• <b>Duration exceeded alert</b> - Warns when treatment period ends<br>
+• <b>Type-specific instructions</b> - Prevents improper intake methods
+</td>
+</tr>
+</table>
+
+---
+
 ## 📺 Complete Program Output
 
 <div align="center">
