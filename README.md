@@ -1873,9 +1873,9 @@ Calls parent constructor: <code>super(name, dosage, frequency, nextTakeTime, dur
 
 | Name | Role | Contribution |
 |------|------|-------------|
-| **Arellano, Jaybert Ivan P.** | Lead Developer | Core system architecture, OOP implementation |
-| **Encarnacion, Kyle Raphael R.** | Developer | GUI design, user interface components |
-| **Sua-an, Pauline Bernadeth G.** | Developer | Testing, documentation, feature implementation |
+| **Encarnacion, Kyle Raphael R.** | Lead Developer | Core system development, complete coding implementation (console & GUI), application architecture, OOP design, README documentation and editing |
+| **Arellano, Jaybert Ivan P.** | Developer | System testing, code review, feature validation |
+| **Sua-an, Pauline Bernadeth G.** | Developer | User interface design consultation, documentation support |
 
 </div>
 
