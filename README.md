@@ -56,6 +56,18 @@ Extends Reminder to provide console-based notifications.
 Overrides: notifyUser() — prints reminder details in the console.
 Purpose: Delivers actual reminder output to the user.
 
+# Program Output
+
+-Main Menu
+
+<img width="248" height="236" alt="image" src="https://github.com/user-attachments/assets/0e112a18-ff83-42b7-8dce-a50debbe092d" />
+
+<img width="355" height="349" alt="image" src="https://github.com/user-attachments/assets/84d7b7ce-cdc3-40ed-8c22-7f709becb588" />
+
+<img width="475" height="108" alt="image" src="https://github.com/user-attachments/assets/d94a073f-a05d-46e2-9001-28738752ed6e" />
+
+
+
 # Author and Acknowledgement
 
 Author:
